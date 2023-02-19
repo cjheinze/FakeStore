@@ -11,6 +11,12 @@
 		3F4A65D929A25A290013368E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65D829A25A290013368E /* ContentView.swift */; };
 		3F4A65DB29A25A2A0013368E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4A65DA29A25A2A0013368E /* Assets.xcassets */; };
 		3F4A65DE29A25A2A0013368E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4A65DD29A25A2A0013368E /* Preview Assets.xcassets */; };
+		3F4A65E629A25BF60013368E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65E529A25BF60013368E /* Model.swift */; };
+		3F4A65E929A25E9A0013368E /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65E829A25E9A0013368E /* StoreAPI.swift */; };
+		3F4A65EB29A276890013368E /* StoreEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65EA29A276890013368E /* StoreEndpoints.swift */; };
+		3F4A65EF29A27FB40013368E /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65EE29A27FB40013368E /* ProductStore.swift */; };
+		3F4A65F129A285500013368E /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A65F029A285500013368E /* ProductListView.swift */; };
+		3F4A65F429A28D3C0013368E /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4A65F329A28D3C0013368E /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,11 @@
 		3F4A65D829A25A290013368E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F4A65DA29A25A2A0013368E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4A65DD29A25A2A0013368E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F4A65E529A25BF60013368E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3F4A65E829A25E9A0013368E /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
+		3F4A65EA29A276890013368E /* StoreEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEndpoints.swift; sourceTree = "<group>"; };
+		3F4A65EE29A27FB40013368E /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		3F4A65F029A285500013368E /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4A65F429A28D3C0013368E /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,10 +63,13 @@
 		3F4A65D529A25A290013368E /* FakeStore */ = {
 			isa = PBXGroup;
 			children = (
+				3F4A65E729A25E8B0013368E /* Resource */,
+				3F4A65E429A25BEC0013368E /* Model */,
 				3F4A65D629A25A290013368E /* FakeStoreApp.swift */,
 				3F4A65D829A25A290013368E /* ContentView.swift */,
 				3F4A65DA29A25A2A0013368E /* Assets.xcassets */,
 				3F4A65DC29A25A2A0013368E /* Preview Content */,
+				3F4A65F029A285500013368E /* ProductListView.swift */,
 			);
 			path = FakeStore;
 			sourceTree = "<group>";
@@ -65,6 +80,40 @@
 				3F4A65DD29A25A2A0013368E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F4A65E429A25BEC0013368E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A65E529A25BF60013368E /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F4A65E729A25E8B0013368E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A65ED29A27FA40013368E /* Storage */,
+				3F4A65EC29A27F980013368E /* API */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3F4A65EC29A27F980013368E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A65E829A25E9A0013368E /* StoreAPI.swift */,
+				3F4A65EA29A276890013368E /* StoreEndpoints.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3F4A65ED29A27FA40013368E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A65EE29A27FB40013368E /* ProductStore.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +132,9 @@
 			dependencies = (
 			);
 			name = FakeStore;
+			packageProductDependencies = (
+				3F4A65F329A28D3C0013368E /* CachedAsyncImage */,
+			);
 			productName = FakeStore;
 			productReference = 3F4A65D329A25A290013368E /* FakeStore.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +163,9 @@
 				Base,
 			);
 			mainGroup = 3F4A65CA29A25A290013368E;
+			packageReferences = (
+				3F4A65F229A28D3C0013368E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = 3F4A65D429A25A290013368E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4A65E929A25E9A0013368E /* StoreAPI.swift in Sources */,
 				3F4A65D929A25A290013368E /* ContentView.swift in Sources */,
+				3F4A65F129A285500013368E /* ProductListView.swift in Sources */,
 				3F4A65D729A25A290013368E /* FakeStoreApp.swift in Sources */,
+				3F4A65EF29A27FB40013368E /* ProductStore.swift in Sources */,
+				3F4A65E629A25BF60013368E /* Model.swift in Sources */,
+				3F4A65EB29A276890013368E /* StoreEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +397,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F4A65F229A28D3C0013368E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F4A65F329A28D3C0013368E /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F4A65F229A28D3C0013368E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F4A65CB29A25A290013368E /* Project object */;
 }

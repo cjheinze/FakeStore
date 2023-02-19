@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject var store = ProductStore.shared
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        ScrollView {
+            LazyVStack {
+                ForEach(store.products, id: \.id) { product in
+                    ProductListView(product: product)
+                }
+            }
         }
-        .padding()
+            
+        
     }
 }
 
