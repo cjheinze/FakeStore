@@ -9,6 +9,7 @@ import SwiftUI
 import CachedAsyncImage
 
 struct ProductListView: View {
+    @State var showBuyAlert = false
     var product: Product
     
     var body: some View {
@@ -41,11 +42,16 @@ struct ProductListView: View {
                         }
                         
                     }
-                    Button("Köp") {
-                        
+                    Button(product.formattedPrice) {
+                        showBuyAlert = true
                     }
                     .buttonStyle(.bordered)
                     .bold()
+                    .alert("Oops!", isPresented: $showBuyAlert) {
+                        Button("OK", role: .cancel) { }
+                    } message: {
+                        Text("Not yet implemented, also this is all fake :)")
+                    }
                 }
                 .padding()
                 .background(.thinMaterial)
