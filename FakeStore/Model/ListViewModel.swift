@@ -39,7 +39,10 @@ class ListViewModel: ObservableObject {
 
     private lazy var products: AnyPublisher<[Product], Error> = StoreAPI().getProductsPublisher()
 
-    init() {
+    init(testEmptyState: Bool = false) {
+        guard testEmptyState == false else {
+            return
+        }
         products
             .receive(on: DispatchQueue.main)
             .replaceError(with: [])
