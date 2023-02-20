@@ -23,7 +23,6 @@ extension Product {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
-//        formatter.maximumSignificantDigits = 2
         
         return formatter.string(from: self.price as NSNumber) ?? String(format: "%.2f", self.price)
     }

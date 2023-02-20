@@ -6,35 +6,33 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
-
-    @StateObject var store = ProductStore.shared
-    @State var categoryTokens: [Category] = []
-
-    @State var searchText = ""
+    @StateObject var model = ListViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(store.products.filter({ product in
-                        guard !searchText.isEmpty || !categoryTokens.isEmpty else {
-                            return true
-                        }
-                        return product.title.lowercased().contains(searchText.lowercased()) ||
-                        categoryTokens.map(\.rawValue).contains(product.category.rawValue)
-                    }), id: \.id) { product in
+                    ForEach(model.filteredProducts, id: \.id) { product in
                         NavigationLink(value: product) {
                             ProductListView(product: product)
                         }
                     }
                 }
             }
+            .searchable(text: $model.searchText, tokens: $model.categoryTokens, suggestedTokens: $model.suggestions) { token in
+                switch token {
+                case .electronics: Text("Electronics⚡️")
+                case .mensClothing: Text("Men's clothes 👔")
+                case .womensClothing: Text("Women's clothes 👚")
+                case .jewelery: Text("Jewelry 💍")
+                default: Text("Other")
+                }
+            }
             .navigationDestination(for: Product.self, destination: { ProductDetailsView(product: $0) })
             .navigationTitle(Text("FakeStore"))
-            .searchable(text: $searchText, tokens: $categoryTokens) { token in
-                Text(token.rawValue)
-            }
         }
     }
 }

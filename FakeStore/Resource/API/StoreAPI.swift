@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum APIError: Error {
     case transportError
@@ -46,5 +47,18 @@ struct StoreAPI {
             }
         }
         task.resume()
+    }
+    
+    func getProductsPublisher() -> AnyPublisher<[Product], Error> {
+        let endpoint = StoreEndpoint.getProducts
+        let request = URLRequest(url: endpoint.url)
+
+        return session.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: [Product].self, decoder: JSONDecoder())
+            .mapError({ error in
+                APIError.parseError
+            })
+            .eraseToAnyPublisher()
     }
 }
